@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Disease project</title>
+        <link href="style.css" rel="stylesheet">
+        <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <div class="welcome-wrapper" id="welcomeViewId">
+            <div class="welcome-screen">
+                <center>
+                    <div class="project-title">Disease Prediction Project.</div>
+                    <div>
+                        <button onclick="scrollToHeart()">Heart</button>
+                        <button>Kidney</button>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <div class="heart-wrapper" id="heartViewId">
+            <div class="left-pane">
+                <div>Patient details</div>
+
+                <div class="input-details-wrapper">
+                    <div>
+                        <label>Input 1</label>
+                        <input placeholder="input 1" id="heart-input-1">
+                    </div>
+
+                    <div>
+                        <label>Input 2</label>
+                        <input placeholder="input 1" id="heart-input-2">
+                    </div>
+                    
+                    <div>
+                        <label>Input 3</label>
+                        <input placeholder="input 1" id="heart-input-3">
+                    </div>
+
+                    <div>
+                        <label>Input 4</label>
+                        <input placeholder="input 1" id="heart-input-4">
+                    </div>
+
+                    <div>
+                        <label>Input 5</label>
+                        <input placeholder="input 1" id="heart-input-5">
+                    </div>
+
+                    <div>
+                        <button onclick="predict()">Predict</button>
+                    </div>
+                </div>
+            </div>
+            <div class="right-pane">
+                <div>Results</div>
+                <center>
+                    <div class="heart-prediction" id="heartPredictionResult">
+                        
+                    </div>
+                </center>
+            </div>
+        </div>
+    </body>
+</html>
