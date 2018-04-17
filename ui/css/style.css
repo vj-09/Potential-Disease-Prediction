@@ -1,0 +1,44 @@
+*{
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.welcome-wrapper{
+    background-image: url('./../images/pic.jpg');
+    background-size:cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    padding: 10px;
+    height: 100%;
+}
+.project-title{
+    margin-top: 20px;
+    text-align: center;
+      
+}
+.btncss
+{
+    font-family: 'Courier New', Courier, monospace;
+    margin:40%;
+}
+
+
+h2{
+    text-align: center
+}
+
+.left-pane, .right-pane {
+    display: inline-table;
+    width: 49%;
+    text-align: center;
+}
+.heart-prediction {
+    height: 150px;
+    width: 180px;
+    background-color: #e3e3e3;
+}
+.kidney-prediction {
+    height: 150px;
+    width: 180px;
+    background-color: #e3e3e3;
+}
