@@ -13,20 +13,20 @@ def get1hot(a):
 data_frame = pd.read_csv("processed_dataset.csv")
 data_frame = shuffle(data_frame)
 
-train = data_frame.iloc[0:-30]
-test = data_frame.iloc[-30:-1]
+train = data_frame.iloc[0:-1]
+# test = data_frame.iloc[-30:-1]
 train_x = train.iloc[:, 1:6]
 
 train_y = train.iloc[:, -1:]
 train_y_1 = get1hot(train_y)
 
-print len(train_y) == len(train_y)
-
-test_x = test.iloc[:, 1:6]
-test_y = test.iloc[:, -1:]
-test_y_1 = get1hot(test_y)
-
-print len(test_y) == len(test_y)
+# print len(train_y) == len(train_y)
+#
+# test_x = test.iloc[:, 1:6]
+# test_y = test.iloc[:, -1:]
+# test_y_1 = get1hot(test_y)
+#
+# print len(test_y) == len(test_y)
 
 input_features = len(train_x.iloc[0])
 hidden_nodes1 = 10
@@ -53,23 +53,25 @@ y_max = tf.argmax(y, 1)
 
 
 cross_entropy = tf.reduce_mean(-tf.reduce_sum(Y * tf.log(y), reduction_indices=[1]))
-train_step = tf.train.GradientDescentOptimizer(0.005).minimize(cross_entropy)
+train_step = tf.train.GradientDescentOptimizer(0.09).minimize(cross_entropy)
 
 
 sess = tf.InteractiveSession()
 tf.global_variables_initializer().run()
 epochs = 2000
 for i in range(epochs):
-    sess.run(train_step, feed_dict={X: train_x, Y: train_y_1})
-    # print "{} / {} done".format(i, epochs)
+    _, loss_ = sess.run([train_step, cross_entropy], feed_dict={X: train_x, Y: train_y_1})
+    if i % 100 == 0:
+        print "{} / {} done : loss : {}".format(i, epochs, loss_)
 # print sess.run(Y_)
 correct_prediction = tf.equal(tf.argmax(Y, 1), tf.argmax(y, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-print(sess.run([w1, w2, accuracy], feed_dict={X: test_x, Y: test_y_1}))
+print(sess.run([y, accuracy], feed_dict={X: train_x, Y: train_y_1}))
 
 
 def predict(i1, i2, i3, i4, i5):
-    return sess.run(y, feed_dict={X: [[i1, i2, i3, i4, i5]]})
+    return sess.run(tf.argmax(y,1), feed_dict={X: [[i1, i2, i3, i4, i5]]})
 
 print predict(0.8615384615,0.4792703151,1,0.9651162791,0.7487437186)
 print predict(0.7384615385,0.2985074627,1,0.9651162791,0.2825613215)
+print predict(0.2923076923,0.4693200663,1,0.9651162791,0.4974874372)
