@@ -11,19 +11,20 @@
                 <div class="welcome-screen">
                         <div class="project-title">
                             Disease Prediction Project.
-
                         </div>
-                        <div class="btncss">
-                            <button onclick="scrollToHeart()">Heart</button>
-                            <button onclick="scrollToKidney()">Kidney</button>
-                        </div>
+                        <center>
+                            <div class="btncss">
+                                <button onclick="scrollToHeart()">Heart</button>
+                                <button onclick="scrollToKidney()">Kidney</button>
+                            </div>
+                        </center>
                 </div>
             </div>
 
             <div class="heart-wrapper" id="heartViewId">
                 <h2>Heart details</h2>
                 <div class="left-pane">
-                    <div>Patient details</div>
+                    <h4>Patient details</h4>
 
                     <div class="input-details-wrapper">
                         <div>
@@ -54,24 +55,23 @@
                         <div>
                             <button onclick="predict()">Predict</button>
                         </div>
-
-                                            <a href="https://en.wikipedia.org/wiki/Cardiovascular_disease" >More details</a>
                     </div>
                 </div>
                 <div class="right-pane">
-                    <div>Results</div>
+                    <h4>Results</h4>
                     <center>
                         <div class="heart-prediction" id="heartPredictionResult">
 
                         </div>
                     </center>
                 </div>
+                <center><a href="https://en.wikipedia.org/wiki/Cardiovascular_disease" >More details</a></center>
             </div>
             <div class="kidney-wrapper" id="kidneyViewId">
                 <h2>Kidney details</h2>
                 <div class="left-pane">
 
-                    <div>Patient details</div>
+                    <h4>Patient details</h4>
 
                     <div class="input-details-wrapper">
                         <div>
@@ -104,17 +104,19 @@
                             <button onclick="predictkidney()">Predict</button>
                         </div>
 
-                                                                    <a href="https://en.wikipedia.org/wiki/Kidney_disease" >More details</a>
                     </div>
                 </div>
                 <div class="right-pane">
-                    <div>Results</div>
+                    <h4>Results</h4>
                     <center>
                         <div class="kidney-prediction" id="kidneyPredictionResult">
 
                         </div>
                     </center>
                 </div>
+                <center>
+                    <a href="https://en.wikipedia.org/wiki/Kidney_disease" >More details</a>
+                </center>
             </div>
         </div>
     </body>
